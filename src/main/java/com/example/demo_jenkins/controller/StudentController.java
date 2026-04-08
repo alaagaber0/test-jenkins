@@ -30,5 +30,9 @@ public class StudentController {
         return ResponseEntity.ok().body(students);
     }
 
+//    @GetMapping("/test")
+//    public void test(){
+//
+//    }
 
 }
