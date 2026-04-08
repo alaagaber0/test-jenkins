@@ -29,10 +29,6 @@ public class StudentController {
         List<Student> students = studentService.getAll();
         return ResponseEntity.ok().body(students);
     }
-
-//    @GetMapping("/test")
-//    public void test(){
-//
-//    }
+    
 
 }
