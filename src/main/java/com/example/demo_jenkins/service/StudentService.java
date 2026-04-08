@@ -16,15 +16,13 @@ public class StudentService {
             new Student(3,"Eslam",40,"Tanta"));
 
     public Student getById(int id) {
-        Student student = null;
-        for(Student s : students){
-            if(s.getId() == id)
-                student = s;
-            break;
-        }
-        assert student != null;
-        log.info("Student >>>>>>>>>>>>> {}", student.getId());
-        return student;
+        return students.stream()
+                .filter(s -> s.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> {
+                    log.error("Student with id {} not found", id);
+                    return new RuntimeException("Student not found");
+                });
     }
 
     public List<Student> getAll() {
